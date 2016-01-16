@@ -323,7 +323,7 @@ public class OrderCardSystemService {
             sql.append("   AND ORDER_TIME <= to_date('"+searchEDate+"','YYYYMMDD')");
             sql.append("  order by ORDER_TIME, TABLE_NUM, GUID  ");
         }
-        System.out.print(sql.toString());
+        //System.out.print(sql.toString());
         return sql.toString();
     }
 

@@ -175,7 +175,7 @@ app.controller('historyQuery', function($scope, $http, $filter){
 		var mainHeight = Number($('main').css('height').replace('px',''));
 		var size = (mainWidth > mainHeight)?mainHeight:mainWidth;
 		$.plot($('#flot_pane').css('height',size+'px').css('width',size+'px'),dataSet, options);
-		alert($('#flot_pane').css('height') + ' x ' +$('#flot_pane').css('width'));
+		//alert($('#flot_pane').css('height') + ' x ' +$('#flot_pane').css('width'));
 		$('#flot_pane').bind('plotclick',function(event, pos, obj){
 			if (!obj){return;}
 			/*var percent = Math.round(obj.series.percent);
