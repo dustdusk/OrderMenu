@@ -1,0 +1,49 @@
+.mdl-datepicker-title{
+	 background-color: #2196f3;
+	 width: 250px;
+	 height: 40px;
+	 margin: -20px -20px 20px -20px;
+	 border-radius: 2px 2px 0 0;
+	 color:white;
+	 text-align:left;
+	 padding:20px;"
+}
+.mdl-datepicker-week{
+    display: inline-block;
+    vertical-align: text-top;
+    text-align: center;
+    
+    width:35px;
+    height: 35px;
+    line-height: 30px;
+    
+    color:#b3b3b3;
+}
+.mdl-datepicker-date{
+	display: inline-block;
+	vertical-align: text-top;
+	text-align: center;
+	
+	width:35px;
+	height: 35px;
+	line-height: 35px;
+}
+
+.mdl-datepicker-date.is-checked{
+    background-color:#80bfff;
+    border-radius: 100%;
+    color:white;
+}
+.mdl-datepicker-date.is-disabled{
+    color:#b3b3b3;
+}
+
+.mdl-datepicker-date.mdl-datepicker-date__today{
+    color:#2196f3;
+}
+.mdl-datepicker-date.mdl-datepicker-date__today.is-checked{
+    color:white;
+}
+.mdl-datepicker-button{
+	color:#2196f3;
+}

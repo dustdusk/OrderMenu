@@ -1,0 +1,125 @@
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs"  id="eidtDetail" style="display:none;">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <div class="mdl-layout__drawer-button" ng-click="backOrderCard();">
+            <i class="material-icons">keyboard_arrow_left</i>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation">
+                <span ng-click="editDetailSave();" class="mdl-button mdl-js-button mdl-button--icon" ng-disabled="detailCard.ITEM_GUID ==''">
+                <i class="material-icons">save</i>
+                </span>
+            </nav>
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect" style="background-color:#80bfff;font-size:16px;" id="tab_container">
+          <a href="#tab1" class="mdl-layout__tab is-active">飲料</a>
+          <a href="#tab2" class="mdl-layout__tab">蛋糕</a>
+          <a href="#tab3" class="mdl-layout__tab">輕食</a>
+        </div>
+      </header>
+      <main class="mdl-layout__content" id="tab_container">
+        <section class="mdl-layout__tab-panel is-active" id="tab1">
+          <div class="page-content">
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="width:49%;background-color:#f2f2f2;margin:0.25%"
+                  ng-click="clickItem(menuItem,'tab');" ng-style="menuItem.isCheck?{'background-color' : '#ffab40'}:{'background-color':'#f2f2f2'}"
+                  ng-class="{'mdl-shadow--2dp' : menuItem.isCheck}"
+                  ng-repeat="menuItem in menuItemList | filter : {ITEM_TYPE : '0'}">
+                  {{menuItem.ITEM_NAME}}
+              </button>
+           </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="tab2">
+          <div class="page-content">
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="width:49%;background-color:#f2f2f2;margin:0.25%"
+                  ng-click="clickItem(menuItem,'tab');" ng-style="menuItem.isCheck?{'background-color' : '#ffab40'}:{'background-color':'#f2f2f2'}"
+                  ng-class="{'mdl-shadow--2dp' : menuItem.isCheck}"
+                  ng-repeat="menuItem in menuItemList | filter : {ITEM_TYPE : '1'}">
+                  {{menuItem.ITEM_NAME}}
+              </button>
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="tab3">
+          <div class="page-content">
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="width:49%;background-color:#f2f2f2;margin:0.25%"
+                  ng-click="clickItem(menuItem,'tab');" ng-style="menuItem.isCheck?{'background-color' : '#ffab40'}:{'background-color':'#f2f2f2'}"
+                  ng-class="{'mdl-shadow--2dp' : menuItem.isCheck}"
+                  ng-repeat="menuItem in menuItemList | filter : {ITEM_TYPE : '2'}">
+                  {{menuItem.ITEM_NAME}}
+              </button>
+          </div>
+        </section>
+      </main>
+      <footer>
+          <div id="memoItemPane">
+          <div style="background-color:#80bfff;height:30px;padding:10px 5px 0;color:white;" class="mdl-shadow--2dp"
+                  ng-show="(detailCard.DETAIL_MEMO.indexOf('H') != -1) || (detailCard.DETAIL_MEMO.indexOf('C') != -1) || (detailCard.DETAIL_MEMO.indexOf('S') != -1)">備註</div>
+          <div style="height:35px;padding: 5px 5px 0;">
+               <span ng-show="detailCard.DETAIL_MEMO.indexOf('H') != -1">
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-h">
+                  <input type="radio" id="option-h" class="mdl-radio__button" name="options-t" value="h" ng-model="optionT">
+                  <span class="mdl-radio__label">熱</span>
+                </label>
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-w">
+                  <input type="radio" id="option-w" class="mdl-radio__button" name="options-t" value="w" ng-model="optionT">
+                  <span class="mdl-radio__label">溫</span>
+                </label>
+                </span>
+                <span ng-show="detailCard.DETAIL_MEMO.indexOf('C') != -1">
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-i">
+                  <input type="radio" id="option-i" class="mdl-radio__button" name="options-t" value="i" ng-model="optionT">
+                  <span class="mdl-radio__label">冰</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-li">
+                  <input type="radio" id="option-li" class="mdl-radio__button" name="options-t" value="li" ng-model="optionT">
+                  <span class="mdl-radio__label">少冰</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-ni">
+                  <input type="radio" id="option-ni" class="mdl-radio__button" name="options-t" value="ni" ng-model="optionT">
+                  <span class="mdl-radio__label">去冰</span>
+                </label>
+                </span>
+              </div>
+          <div ng-show="detailCard.DETAIL_MEMO.indexOf('S') != -1">
+            <div style="min-height:40px;padding: 5px 5px 0;">
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-ms">
+                  <input type="radio" id="option-ms" class="mdl-radio__button" name="options-s" value="ms" ng-model="optionS">
+                  <span class="mdl-radio__label">加糖</span>
+                </label>
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-ns">
+                  <input type="radio" id="option-ns" class="mdl-radio__button" name="options-s" value="ns" ng-model="optionS" >
+                  <span class="mdl-radio__label">正常</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-hs">
+                  <input type="radio" id="option-hs" class="mdl-radio__button" name="options-s" value="hs" ng-model="optionS">
+                  <span class="mdl-radio__label">半糖</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-ls">
+                  <input type="radio" id="option-ls" class="mdl-radio__button" name="options-s" value="ls" ng-model="optionS">
+                  <span class="mdl-radio__label">少糖</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-lis">
+                  <input type="radio" id="option-lis" class="mdl-radio__button" name="options-s" value="lis" ng-model="optionS">
+                  <span class="mdl-radio__label">微糖</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-nos">
+                  <input type="radio" id="option-nos" class="mdl-radio__button" name="options-s" value="nos" ng-model="optionS">
+                  <span class="mdl-radio__label">無糖</span>
+                </label>
+            </div>
+          </div>
+          </div>
+          <div style="height:40px;background-color:#424242;text-align: center;">
+                <h6 style="position: absolute;left:0px;padding: 5px 5px 0px;">數量</h6>
+                <h6 style="padding: 5px 5px 0px;">
+                <button class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons" style="vertical-align:top;" ng-click="DETAIL_NUM = DETAIL_NUM + 1">add</i>
+                </button>
+                <span style="font-size:24px;text-align:center;vertical-align:middle;" ng-bind="DETAIL_NUM"></span>
+                <button class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons" style="vertical-align:top;" ng-click="DETAIL_NUM = DETAIL_NUM - (DETAIL_NUM>1?1:0)">remove</i>
+                </button>
+                </h6>
+          </div>
+      </footer>
+    </div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    <struts>
+        <constant name="struts.devMode" value="true"/>
+        <!-- don't user any Struts framework -->
+        <constant name="struts.ui.theme" value="simple"/>
+        <!-- 加入國際化(多國語系)功能 -->
+        <constant name="struts.custom.i18n.resources" value="globalMessages"/>
+        
+        <constant name="struts.i18n.encoding" value="UTF-8" />
+        
+        <!-- <constant name="struts.objectFactory" value="spring" />加入這行就可以使用Annotation 去instance Action 而不用透過bean id 的方式 -->
+    </struts>
+    
